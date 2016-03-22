@@ -320,7 +320,14 @@ public class ArrayListTest {
         Collection<Integer> subList = testInstance.subList(0,1);
         assertEquals("Expected collection size is 1, however actual is not", 1, subList.size());
         assertEquals("No 2 expected,", false, subList.contains(2));
-        //try
+        try {
+            testInstance.subList(-1,2);
+            fail("subList do not throw the Exception when called with out bounds indexes");
+        } catch (final IndexOutOfBoundsException e) {}
+        try {
+            testInstance.subList(2,1);
+            fail("subList do not throw the Exception when called with wrong order indexes");
+        } catch (final IllegalArgumentException e) {}
 
     }
 

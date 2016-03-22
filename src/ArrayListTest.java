@@ -309,4 +309,32 @@ public class ArrayListTest {
         } catch (final IllegalStateException e) {}
     }
 
+
+
+    @Test
+    public void testSubList() throws Exception {
+        final ArrayList<Integer> testInstance = new ArrayList<>();
+        testInstance.add(1);
+        testInstance.add(2);
+
+        Collection<Integer> subList = testInstance.subList(0,1);
+        assertEquals("Expected collection size is 1, however actual is not", 1, subList.size());
+        assertEquals("No 2 expected,", false, subList.contains(2));
+        //try
+
+    }
+
+    @Test
+    public void testAddToEnd() {
+        final ArrayList<Integer> testInstance = new ArrayList<>();
+        testInstance.add(1);
+        testInstance.add(2);
+        testInstance.add(3);
+
+
+        testInstance.add(3, 4);
+        final Iterator<Integer> iter = testInstance.listIterator(3);
+        assertEquals("Expected iterator to have next after adding new element", true, iter.hasNext());
+        assertEquals("Expected 4 but it's not", 4, (int)iter.next());
+    }
 }

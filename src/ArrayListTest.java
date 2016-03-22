@@ -364,6 +364,23 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testAddAllToEnd() {
+        final ArrayList<Integer> testInstance = new ArrayList<>();
+        testInstance.add(1);
+        testInstance.add(2);
+        testInstance.add(3);
+        testInstance.add(4);
+        final ArrayList<Integer> testInstance2 = new ArrayList<>();
+        testInstance2.add(1);
+        testInstance2.add(2);
+        testInstance2.add(3);
+        testInstance2.add(4);
+        testInstance.addAll(4, testInstance2);
+        assertEquals("Expected new testInstance size to be 8", 8, testInstance.size());
+    }
+
+
+    @Test
     public void testLastIndexOf() {
         final ArrayList<Integer> testInstance = new ArrayList<>();
         testInstance.add(1);

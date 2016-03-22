@@ -221,10 +221,10 @@ public class ArrayList<T> implements List<T> {
 
         if (m.length < this.size() + elements.size()) {
             final T[] oldM = m;
-            m = (T[]) new Object[this.size() + elements.size()];
+            m = (T[]) new Object[this.size()*2 + elements.size()];
             if (index == this.size()) {
                 System.arraycopy(oldM, 0, m, 0, this.size());
-                for (Object item :elements) this.add(size++,(T)item);
+                for (Object item : elements) this.add(size,(T)item);
             } else {
                 System.arraycopy(oldM, 0, m, 0, index);
                 int j = index;
@@ -238,7 +238,7 @@ public class ArrayList<T> implements List<T> {
             return true;
         } else {
             if (index == this.size()) {
-                for (Object item : elements) this.add(size++,(T)item);
+                for (Object item : elements) this.add(size,(T)item);
             } else {
                 System.arraycopy(m, 0, m, 0, index);
                 System.arraycopy(m, index, m, index + elements.size(), this.size() - index);

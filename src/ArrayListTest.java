@@ -347,4 +347,17 @@ public class ArrayListTest {
         assertEquals("Expected iterator to have next after adding new element", true, iter.hasNext());
         assertEquals("Expected 4 but it's not", 3, (int)iter.next());
     }
+
+    @Test
+    public void testLastIndexOf() {
+        final ArrayList<Integer> testInstance = new ArrayList<>();
+        testInstance.add(1);
+        testInstance.add(2);
+        testInstance.add(3);
+        testInstance.add(3);
+        testInstance.add(4);
+        assertEquals("Expected index to be 3", 3, testInstance.lastIndexOf(3));
+    }
+
+
 }

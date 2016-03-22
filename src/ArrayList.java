@@ -189,7 +189,7 @@ public class ArrayList<T> implements List<T> {
     public int lastIndexOf(final Object target) {
         ListIterator<T> it = new ElementsIterator(this.size());
         while (it.hasPrevious()){
-            if (it.previous().equals(target)) return it.previousIndex();
+            if (it.previous().equals(target)) return it.previousIndex() + 1;
         }
         return -1;
     }

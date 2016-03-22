@@ -418,13 +418,14 @@ public class ArrayListTest {
         final ArrayList<Integer> testInstance = new ArrayList<>();
         testInstance.add(1);
         testInstance.add(2);
+        testInstance.add(3);
+        testInstance.add(4);
+        testInstance.add(5);
         final ArrayList<Integer> testInstance2 = new ArrayList<>();
         testInstance2.add(1);
         testInstance2.add(2);
-        testInstance2.add(3);
-        testInstance2.add(4);
         testInstance.addAll(2, testInstance2);
-        assertEquals("Expected new testInstance size to be 6", 6, testInstance.size());
+        assertEquals("Expected new testInstance size to be 7", 7, testInstance.size());
         assertEquals("Expected 3-th element of new List to be 1 but it's not", 1, (int)testInstance.get(2));
     }
 

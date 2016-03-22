@@ -164,13 +164,20 @@ public class ArrayList<T> implements List<T> {
         if (m.length == this.size()) {
             final T[] oldM = m;
             m = (T[]) new Object[this.size() * 2];
-            System.arraycopy(oldM, 0, m, 0, index - 1);
-            m[index] = element;
-            System.arraycopy(oldM, index + 1, m, index + 1, oldM.length - index);
+            if (index == this.size()) {
+                System.arraycopy(oldM, 0, m, 0, this.size());
+                m[size++] = element;
+            } else {
+                System.arraycopy(oldM, 0, m, 0, index);
+                m[index] = element;
+                System.arraycopy(oldM, index + 1, m, index + 1, oldM.length - index);
+                size++;
+            }
         } else {
-            System.arraycopy(m, 0, m, 0, index - 1);
+            System.arraycopy(m, 0, m, 0, index);
             System.arraycopy(m, index, m, index + 1, this.size() - index);
             m[index] = element;
+            size++;
         }
     }
 

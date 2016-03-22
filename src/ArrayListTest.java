@@ -330,8 +330,6 @@ public class ArrayListTest {
         testInstance.add(1);
         testInstance.add(2);
         testInstance.add(3);
-
-
         testInstance.add(3, 4);
         final Iterator<Integer> iter = testInstance.listIterator(3);
         assertEquals("Expected iterator to have next after adding new element", true, iter.hasNext());

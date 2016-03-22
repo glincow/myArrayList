@@ -357,6 +357,7 @@ public class ArrayListTest {
         testInstance.add(3);
         testInstance.add(4);
         assertEquals("Expected index to be 3", 3, testInstance.lastIndexOf(3));
+        assertEquals("Expected to see -1, but it's not", -1, testInstance.lastIndexOf(0));
     }
 
     @Test
@@ -368,6 +369,7 @@ public class ArrayListTest {
         testInstance.add(3);
         testInstance.add(4);
         assertEquals("Expected index to be 2", 2, testInstance.indexOf(3));
+        assertEquals("Expected to see -1, but it's not", -1, testInstance.lastIndexOf(0));
     }
 
 

@@ -341,6 +341,14 @@ public class ArrayListTest {
         final Iterator<Integer> iter = testInstance.listIterator(3);
         assertEquals("Expected iterator to have next after adding new element", true, iter.hasNext());
         assertEquals("Expected 4 but it's not", 4, (int)iter.next());
+        try {
+            testInstance.add(-1,4);
+            fail("add do not throw the Exception when called with out bounds indexes");
+        } catch (final IndexOutOfBoundsException e) {}
+        try {
+            testInstance.add(5,4);
+            fail("add do not throw the Exception when called with out bounds indexes");
+        } catch (final IndexOutOfBoundsException e) {}
     }
 
     @Test

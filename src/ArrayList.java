@@ -149,7 +149,8 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public List<T> subList(final int start, final int end) {
-        if (start < 0 || end > size || start > end) throw new IndexOutOfBoundsException();
+        if (start < 0 || end > size) throw new IndexOutOfBoundsException();
+        if (start > end) throw new IllegalArgumentException();
         List<T> subList = new ArrayList<T>();
         for (int i = start; i < end; i++){
             subList.add(i, this.get(i));

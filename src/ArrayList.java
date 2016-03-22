@@ -174,10 +174,14 @@ public class ArrayList<T> implements List<T> {
                 size++;
             }
         } else {
-            System.arraycopy(m, 0, m, 0, index);
-            System.arraycopy(m, index, m, index + 1, this.size() - index);
-            m[index] = element;
-            size++;
+            if (index == this.size()) {
+                m[size++] = element;
+            } else {
+                System.arraycopy(m, 0, m, 0, index);
+                System.arraycopy(m, index, m, index + 1, this.size() - index);
+                m[index] = element;
+                size++;
+            }
         }
     }
 

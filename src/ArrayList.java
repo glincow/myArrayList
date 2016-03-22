@@ -235,6 +235,7 @@ public class ArrayList<T> implements List<T> {
                 }
                 System.arraycopy(oldM, index + 1, m, index + elements.size(), oldM.length - index);
             }
+            return true;
         } else {
             if (index == this.size()) {
                 for (Object item : elements) this.add(size++,(T)item);
@@ -242,14 +243,14 @@ public class ArrayList<T> implements List<T> {
                 System.arraycopy(m, 0, m, 0, index);
                 System.arraycopy(m, index, m, index + elements.size(), this.size() - index);
                 int k = index;
-                for (Object item :elements) {
+                for (Object item : elements) {
                     this.add(k,(T)item);
                     k++;
                     size++;
                 }
             }
+            return true;
         }
-
     }
 
 

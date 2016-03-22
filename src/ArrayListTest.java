@@ -378,6 +378,11 @@ public class ArrayListTest {
         testInstance.addAll(4, testInstance2);
         assertEquals("Expected new testInstance size to be 8", 8, testInstance.size());
         assertEquals("Expected 5-th element of new List to be 1 but it's not", 1, (int)testInstance.get(4));
+        final ArrayList<Integer> testInstance3 = new ArrayList<>();
+        try {
+           testInstance.addAll(1,testInstance3);
+            fail("addAll do not throw the Exception when called with null List");
+        } catch (final NullPointerException e) {}
     }
 
     @Test

@@ -359,5 +359,16 @@ public class ArrayListTest {
         assertEquals("Expected index to be 3", 3, testInstance.lastIndexOf(3));
     }
 
+    @Test
+    public void testIndexOf() {
+        final ArrayList<Integer> testInstance = new ArrayList<>();
+        testInstance.add(1);
+        testInstance.add(2);
+        testInstance.add(3);
+        testInstance.add(3);
+        testInstance.add(4);
+        assertEquals("Expected index to be 2", 2, testInstance.indexOf(3));
+    }
+
 
 }

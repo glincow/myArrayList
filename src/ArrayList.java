@@ -187,7 +187,11 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public int lastIndexOf(final Object target) {
-        throw new UnsupportedOperationException();
+        ListIterator<T> it = new ElementsIterator(this.size());
+        while (it.hasPrevious()){
+            if (it.previous().equals(target)) return it.previousIndex();
+        }
+        return -1;
     }
 
     @Override

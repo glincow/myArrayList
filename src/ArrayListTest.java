@@ -377,6 +377,7 @@ public class ArrayListTest {
         testInstance2.add(4);
         testInstance.addAll(4, testInstance2);
         assertEquals("Expected new testInstance size to be 8", 8, testInstance.size());
+        assertEquals("Expected 5-th element of new List to be 1 but it's not", 1, (int)testInstance.get(4));
     }
 
     @Test
@@ -393,6 +394,7 @@ public class ArrayListTest {
         testInstance2.add(4);
         testInstance.addAll(2, testInstance2);
         assertEquals("Expected new testInstance size to be 8", 8, testInstance.size());
+        assertEquals("Expected 3-th element of new List to be 1 but it's not", 1, (int)testInstance.get(2));
     }
 
 

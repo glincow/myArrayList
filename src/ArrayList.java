@@ -208,7 +208,48 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public boolean addAll(final int index, final Collection elements) {
-        throw new UnsupportedOperationException();
+        if (index < 0 || index > this.size()) throw new IndexOutOfBoundsException();
+
+        boolean isNull = true;
+        for (final Object item : elements) {
+            if (!item.equals(null)){
+                isNull = false;
+                break;
+            }
+        }
+        if (isNull) throw new NullPointerException();
+
+        if (m.length < this.size() + elements.size()) {
+            final T[] oldM = m;
+            m = (T[]) new Object[this.size() + elements.size()];
+            if (index == this.size()) {
+                System.arraycopy(oldM, 0, m, 0, this.size());
+                for (Object item :elements) this.add(size++,(T)item);
+            } else {
+                System.arraycopy(oldM, 0, m, 0, index);
+                int j = index;
+                for (Object item :elements) {
+                    this.add(j,(T)item);
+                    j++;
+                    size++;
+                }
+                System.arraycopy(oldM, index + 1, m, index + elements.size(), oldM.length - index);
+            }
+        } else {
+            if (index == this.size()) {
+                for (Object item : elements) this.add(size++,(T)item);
+            } else {
+                System.arraycopy(m, 0, m, 0, index);
+                System.arraycopy(m, index, m, index + elements.size(), this.size() - index);
+                int k = index;
+                for (Object item :elements) {
+                    this.add(k,(T)item);
+                    k++;
+                    size++;
+                }
+            }
+        }
+
     }
 
 
